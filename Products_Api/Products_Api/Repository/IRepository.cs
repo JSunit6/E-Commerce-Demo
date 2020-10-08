@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Products_Api.Repository
 {
-    interface IRepository
+    public interface IRepository
     {
     }
 }
