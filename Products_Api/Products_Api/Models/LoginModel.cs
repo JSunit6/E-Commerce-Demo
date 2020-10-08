@@ -6,20 +6,13 @@ using System.Threading.Tasks;
 
 namespace Products_Api.Models
 {
-    public class AppUserModel
+    public class LoginModel
     {
         [Required]
         public String Username { get; set; }
-        
+
         [Required]
         public String Password { get; set; }
 
-        [Required]
-        public String Email { get; set; }
-
-        [Required]
-        public String FullName { get; set; }
-
-        public String Roles { get; set; }
     }
 }
