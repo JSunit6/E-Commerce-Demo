@@ -39,7 +39,7 @@
         </mat-form-field>
 
         <mat-form-field class="full-width-input">
-          <input matInput type="password" placeholder="Password" formControlName="Password"  required>
+          <input matInput type="password" placeholder="Password" formControlName="Password" minlength="6" pattern=".*[0-9][@#$%^\'&\'+=].*" required>
           
           <mat-error>
             Please provide a valid password
@@ -52,14 +52,14 @@
             2. Must contain at least one digit and one special character (eg. @, #).       
         </p>
         
-        <button mat-raised-button style="background-color: green" title="Sign Up">
+        <button mat-raised-button style="background-color: green" title="Sign Up" [disabled]="!registerForm.valid">
             <mat-icon>
                 check
             </mat-icon>
         </button>
             &nbsp; &nbsp;
         
-        <button mat-raised-button style="background-color: red" title="Reset">
+        <button type="reset" mat-raised-button style="background-color: red" title="Reset">
             <mat-icon>
                 close
             </mat-icon>

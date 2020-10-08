@@ -11,6 +11,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { RoleGuardService } from './services/role-guard.service';
 import { MaterialModule } from 'material-module';
+import { RegistrationdialogComponent } from './dialogs/registrationdialog/registrationdialog.component';
+import { GetallproductsComponent } from './components/getallproducts/getallproducts.component';
 
 export function tokenGetter() {
   return localStorage.getItem("token");
@@ -20,7 +22,9 @@ export function tokenGetter() {
   declarations: [
     AppComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    RegistrationdialogComponent,
+    GetallproductsComponent
   ],
   imports: [
     BrowserModule,

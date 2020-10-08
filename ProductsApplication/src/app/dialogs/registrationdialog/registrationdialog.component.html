@@ -1,0 +1,30 @@
+
+<span *ngIf = "dialogData.registrationError">
+        <h2 mat-dialog-title>Registration Error</h2>
+        <mat-dialog-content>Server Error, try after some time.</mat-dialog-content>
+    </span>
+
+<span *ngIf = "dialogData.registrationStatus && !dialogData.registrationError">
+    <h2 mat-dialog-title>Registration Unsuccessfull</h2>
+    <mat-dialog-content>Try again?</mat-dialog-content>
+</span>
+
+<span *ngIf = "!dialogData.registrationStatus && !dialogData.registrationError">
+    <h2 mat-dialog-title>Registration Successfull</h2>
+    <mat-dialog-content>Go to login page?</mat-dialog-content>
+</span>
+
+<mat-dialog-actions align="center">
+    <button mat-button mat-dialog-close cdkFocusInitial style="background-color:green">
+        <mat-icon>
+            check
+        </mat-icon>  
+    </button>
+    <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
+    <button mat-button [mat-dialog-close]="true" style="background-color:red">
+        <mat-icon>
+            close
+        </mat-icon>
+    </button>
+</mat-dialog-actions>
+      

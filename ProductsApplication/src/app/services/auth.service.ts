@@ -13,7 +13,7 @@ export class AuthService {
 
   }
 
-  public async register(registerFormData){
+  public register(registerFormData){
     return this._httpClient.post(this.baseUrl+"register", JSON.stringify(registerFormData));
   }
   
