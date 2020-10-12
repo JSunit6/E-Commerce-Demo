@@ -1,2 +1,10 @@
-export class Product {
+import { Productcategories } from '../../app/models/productcategories'
+
+export class Product  {
+    ProductId: number;
+    ProductName: string;
+    ProductBrand: string;
+    ProductQtyAvailable: number;
+    ProductPrice: number;
+    ProductCategoryId: number; 
 }
