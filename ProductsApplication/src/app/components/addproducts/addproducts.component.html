@@ -1,64 +1,137 @@
-<mat-card>
-        <mat-card-content>
-          <form [formGroup]="addProductForm" (ngSubmit)="onSubmit()">
-            
-            <h2>Sign Up</h2>
-            
+<!-- <mat-card>
+    <mat-card-content>
+        <form [formGroup]="addProductForm" (ngSubmit)="onSubmit()">
+
+            <h2>Add Product</h2>
+
             <br/>
-            
+
+            <div>
+                <mat-form-field class="full-width-field">
+                    <input type="text" matInput placeholder="Product Name" formControlName="ProductName" required>
+                    <mat-error>
+                        Please provide a valid Name
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
             <mat-form-field class="full-width-input">
-                <input type="text" matInput placeholder="Product Name" formControlName="ProductName"  required>
+                <input type="text" matInput placeholder="Product Brand" formControlName="ProductBrand" required>
                 <mat-error>
-                  Please provide a valid Name
+                    Please provide a valid Brand Name
                 </mat-error>
             </mat-form-field>
-    
+
             <mat-form-field class="full-width-input">
-                <input type="text" matInput placeholder="Product Brand" formControlName="ProductBrand"  required>
+                <input type="number" matInput placeholder="Product Quantity" formControlName="ProductQty" required>
                 <mat-error>
-                  Please provide a valid Brand Name
-                </mat-error>
-              </mat-form-field>
-    
-            <mat-form-field class="full-width-input">
-                <input type="number" matInput placeholder="Product Quantity" formControlName="ProductQty"  required>
-                <mat-error>
-                Please provide a valid Quantity
+                    Please provide a valid Quantity
                 </mat-error>
             </mat-form-field>
-    
+
             <mat-form-field class="full-width-input">
                 <input matInput type="number" placeholder="Product Price" formControlName="ProductPrice" required>
-                
+
                 <mat-error>
-                Please provide a valid Price
+                    Please provide a valid Price
                 </mat-error>
             </mat-form-field>
-            
+
             <mat-form-field class="full-width-input">
                 <input matInput type="text" placeholder="Pick one" formControlName="ProductCategory" required [matAutocomplete]="auto">
                 <mat-autocomplete #auto="matAutocomplete">
-                <mat-option *ngFor="let option of productCategories | async" [value]="option">
-                    {{option}}
-                </mat-option>
+                    <mat-option *ngFor="let option of productCategories | async" [value]="option">
+                        {{option}}
+                    </mat-option>
                 </mat-autocomplete>
             </mat-form-field>
-            
+
             <button mat-raised-button style="background-color: green" title="Sign Up" [disabled]="!addProductForm.valid">
                 <mat-icon>
                     check
                 </mat-icon>
             </button>
-            
-                &nbsp; &nbsp;
-            
+
+            &nbsp; &nbsp;
+
             <button type="reset" mat-raised-button style="background-color: red" title="Reset">
                 <mat-icon>
                     close
                 </mat-icon>
             </button>
-          
+
         </form>
-        </mat-card-content>
-      </mat-card>
-    
+    </mat-card-content>
+</mat-card>
+ -->
+
+<mat-card>
+    <br>
+    <mat-card-content>
+        <form [formGroup]="addProductForm" (ngSubmit)="onSubmit()">
+            <div>
+                <mat-form-field class="full-width-input">
+                    <input type="text" matInput placeholder="Product Name" formControlName="ProductName" required>
+                    <mat-error>
+                        Please provide a valid Name
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field class="full-width-input">
+                    <input type="text" matInput placeholder="Product Brand" formControlName="ProductBrand" required>
+                    <mat-error>
+                        Please provide a valid Brand Name
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field class="full-width-input">
+                    <input type="number" matInput placeholder="Product Quantity" formControlName="ProductQty" required>
+                    <mat-error>
+                        Please provide a valid Quantity
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field class="full-width-input">
+                    <input matInput type="number" placeholder="Product Price" formControlName="ProductPrice" required>
+
+                    <mat-error>
+                        Please provide a valid Price
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field class="full-width-input">
+                    <input matInput type="text" placeholder="Pick one" formControlName="ProductCategory" required [matAutocomplete]="auto">
+                    <mat-autocomplete #auto="matAutocomplete">
+                        <mat-option *ngFor="let option of productCategories | async" [value]="option">
+                            {{option}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <button mat-raised-button style="background-color: green" title="Sign Up" [disabled]="!addProductForm.valid">
+                    <mat-icon>
+                        check
+                    </mat-icon>
+                </button>
+
+                &nbsp; &nbsp;
+
+                <button type="reset" mat-raised-button style="background-color: red" title="Reset">
+                    <mat-icon>
+                        close
+                    </mat-icon>
+                </button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

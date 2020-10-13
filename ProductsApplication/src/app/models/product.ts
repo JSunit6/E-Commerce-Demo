@@ -1,5 +1,3 @@
-import { Productcategories } from '../../app/models/productcategories'
-
 export class Product  {
     ProductId: number;
     ProductName: string;
