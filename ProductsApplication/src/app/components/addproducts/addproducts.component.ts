@@ -1,21 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validator, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Product } from '../../models/product';
 import { Productcategories } from '../../models/productcategories';
-import { ProductsService } from '../../services/products.service';
 import { ProductcategoriesService } from '../../services/productcategories.service';
 
 @Component({
   selector: 'app-addproducts',
   templateUrl: './addproducts.component.html',
-  styles: [
-  ]
+  styleUrls: ['./addproducts.component.css']
 })
 export class AddproductsComponent implements OnInit {
 
   productToAdd: Product;
   addProductForm: FormGroup;
-  productCategories: Productcategories[];
+  productCategories: string[] = ['demo','one'] ;
 
   constructor(private formBuilder: FormBuilder, private productCategoriesService: ProductcategoriesService) { }
 
@@ -29,11 +27,16 @@ export class AddproductsComponent implements OnInit {
       ProductCategory: ['', Validators.required]
     });
 
-    this.productCategoriesService.getProductCategories().subscribe(
-      (data)=> {this.productCategories = data},
-      (err) => {console.log(err)}
-    );
+    // this.productCategoriesService.getProductCategories().subscribe(
+    //   (data)=> {this.productCategories = data},
+    //   (err) => {console.log(err)}
+    // );
 
+
+  }
+
+  public onSubmit() {
+    console.log("Submitted");
   }
 
 }

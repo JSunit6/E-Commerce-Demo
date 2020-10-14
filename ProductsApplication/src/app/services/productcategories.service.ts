@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { tokenGetter } from '../app.module';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Productcategories } from '../models/productcategories';
@@ -8,7 +7,7 @@ import { Productcategories } from '../models/productcategories';
   providedIn: 'root'
 })
 export class ProductcategoriesService {
-  readonly token = tokenGetter();
+  readonly token = localStorage.getItem('token');
   baseUrl = "https://localhost:44344/api/"
   
   constructor(private httpClient: HttpClient) { }
