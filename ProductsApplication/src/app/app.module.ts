@@ -13,6 +13,8 @@ import { RoleGuardService } from './services/role-guard.service';
 import { MaterialModule } from 'material-module';
 import { RegistrationdialogComponent } from './dialogs/registrationdialog/registrationdialog.component';
 import { GetallproductsComponent } from './components/getallproducts/getallproducts.component';
+import { AddproductsComponent } from './components/addproducts/addproducts.component';
+import { AddproductcategoriesComponent } from './components/addproductcategories/addproductcategories.component';
 
 export function tokenGetter() {
   return localStorage.getItem("token");
@@ -24,7 +26,9 @@ export function tokenGetter() {
     RegisterComponent,
     LoginComponent,
     RegistrationdialogComponent,
-    GetallproductsComponent
+    GetallproductsComponent,
+    AddproductsComponent,
+    AddproductcategoriesComponent
   ],
   imports: [
     BrowserModule,

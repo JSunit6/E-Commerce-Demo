@@ -20,14 +20,9 @@ export class RegisterComponent implements OnInit {
   public registrationError = false;
   private returnUrl: string;
   registeredUser: Appuser
-  digitRegexp: any;
-  nonAlphaNumericRegexp: any;
-  public invalidPassword = false;
 
   constructor(private resultDialog: MatDialog, private formBuilder: FormBuilder, private authService: AuthService, private router: Router) { 
     this.registeredUser = new Appuser();
-    this.digitRegexp = new RegExp('.*[0-9].*');
-    this.nonAlphaNumericRegexp = new RegExp('.*[@#$%^&+=].*');
   }
 
   ngOnInit(): void {
@@ -59,7 +54,7 @@ export class RegisterComponent implements OnInit {
   }
 
   public onSubmit(){
-    if(this.registerForm.valid && !this.invalidPassword){
+    if(this.registerForm.valid){
       if(this.registeredUser != null){
         this.registeredUser = this.registerForm.value;
         this.signUp(this.registeredUser);
@@ -80,16 +75,5 @@ export class RegisterComponent implements OnInit {
         console.log(`Dialog Res: ${result}`)
       }
     )
-  }
-
-  public checkPassword(passwordInputFieldObj) {
-    console.log("Called");
-    const password = passwordInputFieldObj.target.value;
-    if(password.length < 6 || !(this.digitRegexp.test(password) || !(this.nonAlphaNumericRegexp.test(password)))){
-      this.invalidPassword = true;
-    }
-    else {
-      this.invalidPassword = false;
-    }
   }
 }
