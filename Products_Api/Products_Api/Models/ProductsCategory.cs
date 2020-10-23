@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Products_Api.Models
 {
@@ -11,6 +12,7 @@ namespace Products_Api.Models
         }
 
         public int CategoryId { get; set; }
+        [Required]
         public string CategoryName { get; set; }
 
         public virtual ICollection<Products> Products { get; set; }

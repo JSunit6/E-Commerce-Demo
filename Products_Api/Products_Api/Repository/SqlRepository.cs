@@ -32,5 +32,24 @@ namespace Products_Api.Repository
         {
             return await this._context.Products.FindAsync(productId);
         }
+
+        //Product Category Method
+
+        public async Task<IEnumerable<ProductsCategory>> ViewAllProductCategories()
+        {
+            return await this._context.ProductsCategory.ToArrayAsync<ProductsCategory>();
+        }
+
+        public async Task<ProductsCategory> ViewProductCategoryById(int categoryId)
+        {
+            return await this._context.ProductsCategory.FindAsync(categoryId);
+        }
+
+        public async Task<int> AddProductCategory(ProductsCategory productsCategory)
+        {
+            await this._context.ProductsCategory.AddAsync(productsCategory);
+            return await this._context.SaveChangesAsync();
+        }
+
     }
 }
