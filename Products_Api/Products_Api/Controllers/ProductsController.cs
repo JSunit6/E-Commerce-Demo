@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -25,16 +26,16 @@ namespace Products_Api.Controllers
         [HttpGet]
         public async Task<IActionResult> GetProducts([FromQuery] ProductQueryParameters queryParameters)
         {
-            IQueryable<Products> products = (IQueryable<Products>) await this._repository.ViewAllProducts();
-
-            if (string.IsNullOrEmpty(queryParameters.Brand))
+             var products =  await this._repository.ViewAllProducts();
+           
+            if (!string.IsNullOrEmpty(queryParameters.Brand))
             {
                 products = products.Where(
                         product => product.ProductBrand == queryParameters.Brand 
                     );
             }
 
-            if (string.IsNullOrEmpty(queryParameters.ProductName))
+            if (!string.IsNullOrEmpty(queryParameters.ProductName))
             {
                 products = products.Where(
                         product => product.ProductName.Equals(queryParameters.ProductName)
@@ -47,7 +48,8 @@ namespace Products_Api.Controllers
                         product => product.ProductPrice >= queryParameters.MinPrice && product.ProductPrice <= queryParameters.MaxPrice
                     );
             }
-            return Ok(products.ToArrayAsync());
+            
+            return Ok(products);
         }
 
         [HttpGet("{id}")]

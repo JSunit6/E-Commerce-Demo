@@ -36,7 +36,8 @@ export class AddproductsComponent implements OnInit {
   }
 
   public onSubmit() {
-    console.log("Submitted");
+    this.productToAdd = this.addProductForm.value;
+    console.log(this.productToAdd);
   }
 
 }

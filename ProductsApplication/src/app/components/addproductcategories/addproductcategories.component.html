@@ -1,1 +1,37 @@
-<p>addproductcategories works!</p>
+<mat-card>
+    Add Product Category
+    <br/>
+    <hr/>
+    <br/>
+
+    <mat-card-content>
+        <form [formGroup]="addProductCategoryForm" (ngSubmit)="onSubmit()">
+            <div>
+                <mat-form-field class="full-width-input">
+                    <input type="text" matInput placeholder="Product Category Name" formControlName="ProductCategoryName" required>
+                    <mat-error>
+                        Please provide a valid Name
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <br>
+
+            <div>
+                <button mat-raised-button style="background-color: green" title="Sign Up" [disabled]="!addProductCategoryForm.valid">
+                    <mat-icon>
+                        check
+                    </mat-icon>
+                </button>
+
+                &nbsp; &nbsp;
+
+                <button type="reset" mat-raised-button style="background-color: red" title="Reset">
+                    <mat-icon>
+                        close
+                    </mat-icon>
+                </button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

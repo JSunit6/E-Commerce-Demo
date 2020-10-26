@@ -23,9 +23,9 @@ namespace Products_Api.Repository
             return await this._context.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<Products>> ViewAllProducts()
+        public  async Task<IEnumerable<Products>> ViewAllProducts()
         {
-            return  await this._context.Products.ToArrayAsync<Products>();
+            return await this._context.Products.ToArrayAsync<Products>();
         }
 
         public async Task<Products> ViewProductById(int productId)

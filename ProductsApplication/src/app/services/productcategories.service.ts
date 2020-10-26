@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Productcategories } from '../models/productcategories';
 
@@ -8,12 +8,23 @@ import { Productcategories } from '../models/productcategories';
 })
 export class ProductcategoriesService {
   readonly token = localStorage.getItem('token');
-  baseUrl = "https://localhost:44344/api/"
+  baseUrl = "/api/productcategories"
   
   constructor(private httpClient: HttpClient) { }
 
-  getProductCategories(): Observable<Productcategories[]> {
-    return this.httpClient.get<Productcategories[]>(this.baseUrl+"getProductCategories");
+  viewAllProductCategories(): Observable<Productcategories[]> {
+    const httpOptions = {headers: new HttpHeaders({'Authorization': 'Bearer'+this.token})};
+    return this.httpClient.get<Productcategories[]>(this.baseUrl, httpOptions);
+  }
+
+  viewProductCategory(id: number): Observable<Productcategories> {
+    const httpOptions = {headers: new HttpHeaders({'Authorization': 'Bearer'+this.token})};
+    return this.httpClient.get<Productcategories>(this.baseUrl+"/"+id, httpOptions);
+  }
+
+  addProducCategory(productCategory: Productcategories): Observable<Productcategories> {
+    const httpOptions = {headers: new HttpHeaders({'Authorization': 'Bearer'+this.token, 'Content-Type':'application/json'})};
+    return this.httpClient.post<Productcategories>(this.baseUrl, productCategory, httpOptions);
   }
 
 }
