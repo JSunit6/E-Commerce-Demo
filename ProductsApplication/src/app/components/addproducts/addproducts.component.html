@@ -1,5 +1,9 @@
 <mat-card>
+    Add Products
     <br>
+    <hr/>
+    <br>
+    
     <mat-card-content>
         <form [formGroup]="addProductForm" (ngSubmit)="onSubmit()">
             <div>
@@ -41,9 +45,9 @@
 
             <div>
                 <mat-form-field class="full-width-input">
-                    <input matInput type="text" placeholder="Pick one" formControlName="ProductCategory" required [matAutocomplete]="auto">
+                    <input matInput type="text" placeholder="Product Category" formControlName="ProductCategory" required [matAutocomplete]="auto">
                     <mat-autocomplete #auto="matAutocomplete">
-                        <mat-option *ngFor="let option of productCategories | async" [value]="option">
+                        <mat-option *ngFor="let option of productCategories" [value]="option">
                             {{option}}
                         </mat-option>
                     </mat-autocomplete>
