@@ -25,7 +25,7 @@ export class ProductsService {
 
   addProduct(productToAdd: Product): Observable<Product> {
     const httpOptions = {headers: new HttpHeaders({'Authorization': 'Bearer'+this.token, 'Content-Type':'application/json'})};
-    return this.httpClient.post<Product>(this.baseUrl+"addProducts",JSON.stringify(productToAdd), httpOptions);
+    return this.httpClient.post<Product>(this.baseUrl,JSON.stringify(productToAdd), httpOptions);
   }
   
 }

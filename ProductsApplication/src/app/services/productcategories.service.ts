@@ -23,7 +23,7 @@ export class ProductcategoriesService {
   }
 
   addProducCategory(productCategory: Productcategories): Observable<Productcategories> {
-    const httpOptions = {headers: new HttpHeaders({'Authorization': 'Bearer'+this.token, 'Content-Type':'application/json'})};
+    const httpOptions = {headers: new HttpHeaders({ 'Content-Type':'application/json'})};
     return this.httpClient.post<Productcategories>(this.baseUrl, productCategory, httpOptions);
   }
 

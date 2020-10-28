@@ -1,5 +1,5 @@
 
 export class Productcategories {
-    ProductCategoryId: number;
-    ProductCategoryName: string;
+    CategoryId: number;
+    CategoryName: string;
 }

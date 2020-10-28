@@ -19,7 +19,7 @@ export class AddproductcategoriesComponent implements OnInit {
   ngOnInit(): void {
     
     this.addProductCategoryForm = this.formBuilder.group ({
-      ProductCategoryName:['', Validators.required]
+      CategoryName:['', Validators.required]
     }
     );
   }
