@@ -1,7 +1,36 @@
-
-<mat-grid-list cols="2" rowHeight="2:1">
-        <mat-grid-tile>1</mat-grid-tile>
-        <mat-grid-tile>2</mat-grid-tile>
-        <mat-grid-tile>3</mat-grid-tile>
-        <mat-grid-tile>4</mat-grid-tile>
-</mat-grid-list>
+<mat-toolbar color="primary">
+        All Products
+</mat-toolbar>
+<div class="content" fxLayout="row wrap" fxLayoutGap="16px">
+        <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let product of products">
+                <mat-card class="mat-elevation-z4">
+                        <mat-card-header>
+                                <mat-card-title>{{product.productName}}</mat-card-title>
+                        </mat-card-header>
+                        <img mat-card-image src="./../assets/images/mountains.jpg">
+                        <mat-card-content>
+                                <p>
+                                        Brand: <b>{{product.productBrand}}</b>
+                                        
+                                </p>
+                                <hr/>
+                                <p>
+                                        Price: <b>${{product.productPrice}}</b>
+                                </p>
+                                <hr/>
+                                <p>
+                                        Quantity Available: <b>{{product.productQtyAvailable}}</b>
+                                </p>
+                        </mat-card-content>
+                        <mat-card-actions>
+                                <button mat-button style="background:crimson;" mat-raised-button
+                                matTooltip="Add to cart" matTooltipPosition="after">
+                                        <mat-icon>
+                                                add_shopping_cart
+                                        </mat-icon>
+                                </button>
+                                <!-- <button mat-button>SHARE</button> -->
+                        </mat-card-actions>
+                </mat-card>
+        </div>
+</div>

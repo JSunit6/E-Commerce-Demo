@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../../models/product';
 import { ProductsService } from '../../services/products.service';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @Component({
   selector: 'app-getallproducts',
@@ -19,6 +20,11 @@ export class GetallproductsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log("HERE")
+    this._productService.viewAllProducts().subscribe(
+      (data)=>{this.products = data; console.log(this.products)},
+      (err) => {console.log(err)}
+    );
   }
 
 }
